@@ -1,0 +1,21 @@
+<header>
+    <nav>
+        <span>
+            <a href="/ticket"><h1>Help Me !</h1></a>
+            <% if(user) {%>
+                Bienvenue <%= user.name %>
+            <% } %>
+        </span>
+        <ul>
+            <li><a href="/ticket">Liste des tickets</a></li>
+            <li><a href="/ticket/add-ticket">Faire un ticket</a></li>
+            <% if (!user) { %>
+                <li><a href="/auth/login">Se connecter</a></li>
+            <% } %>
+            <% if (user) { %>
+                <li><a href="/user/delete/<%= user.id %>">Supprimer mon compte</a></li>
+                <li><a href="/auth/logout">Se deconnecter</a></li>
+            <% } %>  
+        </ul>
+    </nav>
+</header>

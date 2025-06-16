@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Help Me</title>
+        <link rel="stylesheet" href="/stylesheets/style.css">
+    </head>
+    <body>
+        <%- include('partials/fragment_header')  %>
+
+        <main>
+            <form action="/ticket/add-ticket" method="post">
+                <h3>Faire un ticket</h3>
+                <label for="title">Titre</label>
+                <input type="text" name="title" id="title">
+                <label for="description">Description</label>
+                <input type="text" name="description" id="description">
+                <button type="submit">Valider</button>
+            </form>
+        </main>
+
+        <%- include('partials/fragment_footer')  %>
+    </body>
+</html>

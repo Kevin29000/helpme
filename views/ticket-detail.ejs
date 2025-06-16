@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Help Me</title>
+        <link rel="stylesheet" href="/stylesheets/style.css">
+    </head>
+    <body>
+        <%- include('partials/fragment_header')  %>
+
+        <main>
+            <% if(typeof ticket !== 'undefined' && ticket) { %>
+                <ul class="ticket-list">
+                    <li>
+                        <strong><%= ticket.title %></strong>
+                        <% if (user && (ticket.authorId === user.id || user.role == 2)) { %>
+                            <span>
+                                <a href="">Modifier</a>
+                                <a href="/ticket/delete/<%= ticket.id %>">Supprimer</a>
+                            </span>
+                        <% } %>
+                    </li>
+                    <!-- <li>id : <%= ticket.id %></li> -->
+                    <li>date de création : <%= ticket.creation_date %></li>
+                    <li>author : <%= ticket.author %></li>
+                    <li>description : <%= ticket.description %></li>
+                    <% if (ticket.answers.length > 0) {
+                        ticket.answers.forEach(answer => { %>
+                            <li><span>Autheur : <%= answer.authorName %></span> - <span>Réponse : <%= answer.answer %></span></li>
+                        <% });
+                    } %>
+                    <li>
+                        <% if (user) { %>
+                        <button type="button" id="show-form">Ajouter une réponse</button>
+                        <% } %>
+                    </li>
+                </ul>
+
+                <form action="/ticket/<%= ticket.id %>/add-answer" method="post" id="answer-form" style="display: none;">
+                    <label for="answer">Réponse</label>
+                    <input type="text" name="answer" id="answer">
+                    <button type="submit">Valider</button>
+                </form>
+            <% } %>
+        </main>
+
+        <%- include('partials/fragment_footer')  %>
+
+        <script>
+            document.getElementById('show-form').addEventListener('click', () => {
+                const form = document.getElementById('answer-form');
+                
+                if (form.style.display === "none") {
+                    form.style.removeProperty("display");
+                } else {
+                    form.style.display("none");
+                }
+            });
+        </script>
+    </body>
+</html>

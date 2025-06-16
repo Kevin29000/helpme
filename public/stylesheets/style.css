@@ -1,0 +1,199 @@
+html, body {
+  height: 90%;
+  margin: 0;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  margin: 100px 100px 100px 100px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+/**************************************** Nav ****************************************/
+nav {
+  background-color: white;
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+nav span {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+nav ul {
+  display: flex;
+  gap: 10px;
+}
+
+nav ul li {
+  list-style: none;
+}
+
+a {
+  color: #00B7FF;
+  text-decoration: none;
+}
+
+/**************************************** Ticket list ****************************************/
+.ticket-list-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  padding: 20px;
+}
+
+.ticket-list {
+  flex: 1 1 300px; /* A MODIFIER */
+  list-style: none;
+  background-color: #fdfdfd;
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  padding: 20px;
+  margin: 20px auto;
+  max-width: 600px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s, box-shadow 0.2s;
+  cursor: pointer;
+}
+
+.ticket-list:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+}
+
+.ticket-list li {
+  margin: 8px 0;
+  color: #333;
+  font-size: 15px;
+}
+
+.ticket-list li strong {
+  font-size: 18px;
+  color: #00B7FF;
+}
+
+/****************** modifier et supprimer du ticket detail ******************/
+.ticket-list li:first-child {
+  margin-bottom: 12px;
+}
+
+.ticket-list li:first-child {
+  margin-bottom: 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+}
+
+.ticket-list li:first-child > span {
+  display: flex;
+  gap: 15px;
+}
+
+.ticket-list li:first-child > span > a {
+  color: #00B7FF;
+  text-decoration: none;
+  font-weight: 600;
+  padding: 4px 8px;
+  border-radius: 6px;
+  transition: background-color 0.2s, color 0.2s;
+  cursor: pointer;
+  font-size: 14px;
+  white-space: nowrap;
+}
+
+.ticket-list li:first-child > span > a:hover {
+  background-color: #00B7FF;
+  color: white;
+  text-decoration: none;
+}
+
+/**************************************** Formulaire ****************************************/
+form {
+  background-color: #f9f9f9;
+  padding: 40px;
+  border-radius: 16px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  max-width: 400px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+form h1 {
+  margin: 0;
+  font-size: 24px;
+  color: #333;
+  text-align: center;
+}
+
+form label {
+  font-weight: bold;
+  color: #444;
+}
+
+form input {
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  transition: border-color 0.2s;
+}
+
+form input:focus {
+  border-color: #00B7FF;
+  outline: none;
+}
+
+form button {
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  background-color: #00B7FF;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+form button:hover {
+  background-color: #0099cc;
+}
+
+form a {
+  text-align: center;
+  font-size: 14px;
+  color: #00B7FF;
+}
+
+form button + button {
+  background-color: #eee;
+  color: #333;
+}
+
+form button + button:hover {
+  background-color: #ddd;
+}
+
+/**************************************** Footer ****************************************/
+footer {
+  background-color: white;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  color: #00B7FF;
+  text-align: center;
+  box-shadow: 0 -2px 5px rgba(0,0,0,0.1);
+}

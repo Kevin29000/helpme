@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Help Me</title>
+        <link rel="stylesheet" href="/stylesheets/style.css">
+    </head>
+    <body>
+        <%- include('partials/fragment_header')  %>
+
+        <main>
+            <form action="/auth/login" method="post">
+                <h1>Se connecter</h1>
+                <label for="username">Nom d'utilisateur</label>
+                <input type="text" name="username" id="username">
+                <label for="password">Password</label>
+                <input type="password" name="password" id="password">
+                <button type="submit">Valider</button>
+                <a href="/user/create-user">Créer un compte</a>
+                <a href="">Mot de passe oublié ?</a>
+            </form>
+        </main>
+
+        <%- include('partials/fragment_footer')  %>
+    </body>
+</html>
