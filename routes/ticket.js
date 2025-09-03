@@ -29,6 +29,22 @@ router.post("/add-ticket", (req, res) => {
     res.redirect("/ticket");
 });
 
+router.get("/update/:id", async (req, res) => {
+    const ticket = await ticketService.findById(req.params.id);
+
+    res.render("update-ticket", { ticket: ticket });
+});
+
+router.post("/update/:id", async (req, res) => {
+    const ticketId = req.params.id;
+    const title = req.body.title;
+    const description = req.body.description;
+
+    await ticketService.updateTicket(ticketId, { title, description });
+
+    res.redirect(`/ticket/ticket-detail/${ticketId}`);
+});
+
 router.get("/ticket-detail/:id", async (req, res) => {
     const ticket = await ticketService.findById(req.params.id);
 
@@ -50,7 +66,7 @@ router.post("/:id/add-answer", (req, res) => {
 
     ticketService.addAnswer(ticketId, answer, authorName, authorId);
 
-    res.redirect("/ticket");
+    res.redirect(`/ticket/ticket-detail/${ticketId}`);
 });
 
 module.exports = router;

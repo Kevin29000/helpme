@@ -12,6 +12,11 @@ body {
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
+a {
+  color: #00B7FF;
+  text-decoration: none;
+}
+
 /**************************************** Nav ****************************************/
 nav {
   background-color: white;
@@ -33,15 +38,24 @@ nav span {
 
 nav ul {
   display: flex;
-  gap: 10px;
+  gap: 25px;
 }
 
 nav ul li {
   list-style: none;
 }
 
-a {
+nav ul li a {
   color: #00B7FF;
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+nav ul li a:hover {
+  background-color: #00B7FF;
+  color: white;
   text-decoration: none;
 }
 
@@ -49,19 +63,20 @@ a {
 .ticket-list-container {
   display: flex;
   flex-wrap: wrap;
+  justify-content: space-evenly;
   gap: 20px;
-  padding: 20px;
+  padding: 0 150px 0 150px;
 }
 
 .ticket-list {
-  flex: 1 1 300px; /* A MODIFIER */
+  flex: 1 1 300px;
   list-style: none;
   background-color: #fdfdfd;
   border: 1px solid #ddd;
   border-radius: 12px;
   padding: 20px;
   margin: 20px auto;
-  max-width: 600px;
+  width: 550px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
   transition: transform 0.2s, box-shadow 0.2s;
   cursor: pointer;
@@ -81,6 +96,39 @@ a {
 .ticket-list li strong {
   font-size: 18px;
   color: #00B7FF;
+}
+
+.answers-label {
+  color: #00B7FF !important;
+  font-weight: 600;
+  font-size: 1.5rem !important;
+  text-align: center;
+  margin: 10px 0 20px 0 !important;
+}
+
+.ticket-list li:has(button#show-form) {
+  margin-top: 30px;
+  text-align: center;
+}
+
+#show-form {
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  background-color: #00B7FF;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+#show-form:hover {
+  background-color: #0099cc;
+}
+
+.form-container {
+  display: flex;
+  justify-content: center;
 }
 
 /****************** modifier et supprimer du ticket detail ******************/
@@ -105,7 +153,7 @@ a {
   color: #00B7FF;
   text-decoration: none;
   font-weight: 600;
-  padding: 4px 8px;
+  padding: 8px 16px;
   border-radius: 6px;
   transition: background-color 0.2s, color 0.2s;
   cursor: pointer;

@@ -10,6 +10,12 @@ async function addTicket(author, title, description, authorId) {
     await db.collection('tickets').insertOne(ticket);
 }
 
+async function updateTicket(id, updates) {
+    const db = getDb();
+
+    await db.collection('tickets').updateOne({ id }, { $set: updates });
+}
+
 async function getAllTickets() {
     const db = getDb();
 
@@ -43,6 +49,7 @@ async function addAnswer(ticketId, answer, authorName, authorId) {
 
 module.exports = {
     addTicket,
+    updateTicket,
     getAllTickets,
     findById,
     deleteById,

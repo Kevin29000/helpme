@@ -16,7 +16,7 @@
                         <strong><%= ticket.title %></strong>
                         <% if (user && (ticket.authorId === user.id || user.role == 2)) { %>
                             <span>
-                                <a href="">Modifier</a>
+                                <a href="/ticket/update/<%= ticket.id %>">Modifier</a>
                                 <a href="/ticket/delete/<%= ticket.id %>">Supprimer</a>
                             </span>
                         <% } %>
@@ -25,23 +25,27 @@
                     <li>date de création : <%= ticket.creation_date %></li>
                     <li>author : <%= ticket.author %></li>
                     <li>description : <%= ticket.description %></li>
-                    <% if (ticket.answers.length > 0) {
-                        ticket.answers.forEach(answer => { %>
+                    <% if (ticket.answers.length > 0) { %>
+                        <li><hr></li>
+                        <li class="answers-label">Réponses</li>
+                        <% ticket.answers.forEach(answer => { %>
                             <li><span>Autheur : <%= answer.authorName %></span> - <span>Réponse : <%= answer.answer %></span></li>
                         <% });
                     } %>
                     <li>
                         <% if (user) { %>
-                        <button type="button" id="show-form">Ajouter une réponse</button>
+                            <button type="button" id="show-form">Ajouter une réponse</button>
                         <% } %>
                     </li>
                 </ul>
 
-                <form action="/ticket/<%= ticket.id %>/add-answer" method="post" id="answer-form" style="display: none;">
-                    <label for="answer">Réponse</label>
-                    <input type="text" name="answer" id="answer">
-                    <button type="submit">Valider</button>
-                </form>
+                <div class="form-container">
+                    <form action="/ticket/<%= ticket.id %>/add-answer" method="post" id="answer-form" style="display: none;">
+                        <label for="answer">Répondre à <%= ticket.author %></label>
+                        <input type="text" name="answer" id="answer">
+                        <button type="submit">Valider</button>
+                    </form>
+                </div>
             <% } %>
         </main>
 
